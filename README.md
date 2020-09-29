@@ -2,6 +2,9 @@ This project was bootstrapped with CRA [Create React App].
 
 ## Available Scripts
 
+### `Clone Repository`
+`git clone https://github.com/RaySunwar/github-job-search.git`
+
 In the project directory, you can run:
 
 ### `yarn start`
