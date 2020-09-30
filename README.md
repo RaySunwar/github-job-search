@@ -19,7 +19,8 @@ You will also see any lint errors in the console.
 ### `Packages Uses`
 `Axios` <br>
 `Bootstrap` <br>
-`React-Markdown`
+`React-Markdown`<br>
+`React-Icons` 
 
 
 
