@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { GoMarkGithub } from "react-icons/go"
+import { IconContext } from "react-icons";
+import { GoMarkGithub } from "react-icons/go";
 import useFetchJobs from "./components/api/useFetchJobs";
 import JobPagination from "./components/JobPagination/JobPagination"; 
 import SearchForm from "./components/SearchForm/SearchForm";
@@ -22,7 +23,9 @@ function App() {
 
   return (
     <Container className="my-5">
-      <h1 className="text-center mb-4"> <GoMarkGithub /> Jobs</h1>
+      <IconContext.Provider svg={{ verticalAlign: "initial"}}>
+        <h1 className="text-center mb-4"> <GoMarkGithub /> Jobs</h1>
+      </IconContext.Provider>
       <SearchForm params={params} onParamChange={handleParamChange} />
       <JobPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
       {loading && <h1>Loading...</h1>}
