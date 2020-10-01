@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { GoMarkGithub } from "react-icons/go"
-import useFetchJobs from './components/api/useFetchJobs';
-import JobPagination from './components/JobPagination/JobPagination'; 
+import useFetchJobs from "./components/api/useFetchJobs";
+import JobPagination from "./components/JobPagination/JobPagination"; 
+import SearchForm from "./components/SearchForm/SearchForm";
 import Job from "./components/Job/job";
 import { Container } from "react-bootstrap";
 
@@ -10,9 +11,19 @@ function App() {
   const [page, setPage] = useState(1);
   const { jobs, loading, error, hasNextPage } = useFetchJobs(params, page);
 
+  const handleParamChange = (e) => {
+    const param = e.target.name
+    const value = e.target.value
+    setPage(1)
+    setParams(prevParams => {
+      return { ...prevParams, [param]: value }
+    } )
+  };
+
   return (
     <Container className="my-5">
       <h1 className="text-center mb-4"> <GoMarkGithub /> Jobs</h1>
+      <SearchForm params={params} onParamChange={handleParamChange} />
       <JobPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
       {loading && <h1>Loading...</h1>}
       {error && <h1>Error 404. Try Refreshing.</h1>}
