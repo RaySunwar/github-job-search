@@ -23,7 +23,7 @@ function App() {
 
   return (
     <Container className="my-5">
-      <IconContext.Provider svg={{ verticalAlign: "initial"}}>
+      <IconContext.Provider value={{ style: { verticalAlign: "initial"} }}>
         <h1 className="text-center mb-4"> <GoMarkGithub /> Jobs</h1>
       </IconContext.Provider>
       <SearchForm params={params} onParamChange={handleParamChange} />
